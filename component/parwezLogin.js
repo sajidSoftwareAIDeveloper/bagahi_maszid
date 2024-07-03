@@ -5,6 +5,7 @@ import LoadingData from "./LoadingData"
 import { useDispatch, useSelector } from "react-redux";
 import { listValue } from "../store/TemporaryList";
 import { Button, Input } from "./showListData";
+import { Text_speech } from "./text-speech";
 
 
 export default function Login() {
@@ -16,6 +17,7 @@ export default function Login() {
    const dispatchValue=useSelector(state=>state.loginUserName);
 
    useEffect(()=>{
+    Text_speech("welcome to perwez alam please login using user name and password ");
     setLoading(false);
     setValid(false);
       if(dispatchValue.length!==0){
@@ -42,6 +44,7 @@ export default function Login() {
         setLoading(false);
         setValid(false);
       } else {
+        Text_speech("please enter valid user name and password ");
         setLoading(false);
         setValid(true);
       }

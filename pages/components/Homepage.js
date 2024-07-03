@@ -6,23 +6,24 @@ import NamazList from "../../component/namazList";
 import Login from "../../component/parwezLogin";
 import ReceivedList_b from "../../component/receivedList_b";
 import ReceivedList_o from "../../component/receivedList_o";
+import { Text_speech } from "../../component/text-speech";
 import UsesList from "../../component/usesList";
 import ButtonWV from "./Button";
 import {useEffect, useState} from 'react'
 
 export default function Homepage(){
-
+     
     const[received,setReceived]=useState();
     const[received_o,setReceived_o]=useState();
     const[uses,setUses]=useState();
     const[loading,setLoading]=useState();
-    const[show,setShow]=useState({
+    const[show,setShow]=useState({  
         received_b:'',
         received_o:'',
         uses:"",
         amam:"",
         parwez:"",
-        namaz:false
+        namaz:false  
     });
    
     function effectHandle(identity){
@@ -39,9 +40,10 @@ export default function Homepage(){
             
         }));
     }
-    useEffect(()=>{
+    useEffect(()=>{  
+       Text_speech("please wait data is loading"); 
         CallingFunction();
-    },[])
+    },[])   
 
     async function CallingFunction(){
         const rbl=await ConnectToAPI('findData','','received_bagahi_in','PUT');
@@ -52,8 +54,9 @@ export default function Homepage(){
             setReceived(rbl.message.reduce((sum,items)=>sum+Number(items.amount),0));
             setReceived_o(rol.message.reduce((sum,items)=>sum+Number(items.amount),0));
             setUses(ul.message.reduce((sum,items)=>sum+Number(items.amount),0));
+            Text_speech("the received total amount is "+(received+received_o)+"  and total uses amount is "+uses);
         }
-
+  
     }
 
     return <div className="bg-green-200 m-1 h-full">{loading?
@@ -82,5 +85,6 @@ export default function Homepage(){
                 }  
             </div>
     </div>
-    :<LoadingData/>}</div>
+    :<LoadingData/>}
+    </div>
 }

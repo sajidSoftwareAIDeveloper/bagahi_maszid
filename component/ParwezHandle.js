@@ -9,6 +9,7 @@ import NotFound from "../pages/404";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import LoadingData from "./LoadingData";
+import { Text_speech } from "./text-speech";
 
 export default function ParwezHandle() {
   const [valid, setValid] = useState();
@@ -24,7 +25,6 @@ export default function ParwezHandle() {
   const [a_salary, setSalary] = useState();
   const [a_salary_month, setSalary_month] = useState();
   const [namazUpdateEffect, setNamazUpdateEffect] = useState();
-  const router = useRouter();
 
   const dispatchValue = useSelector((state) => state.loginUserName);
 
@@ -85,10 +85,12 @@ export default function ParwezHandle() {
   }
 
   async function addHandle(collect) {
+
     setLoading(true);
     setSelected(false);
     const res = await ConnectToAPI("addData", data, collect, "POST");
     if (res.message) {
+      Text_speech(" adding successfully");
       setLoading(false);
       setValid(true);
       setSelected(false);
@@ -96,8 +98,7 @@ export default function ParwezHandle() {
       setLoading(false);
       setValid(false);
     }
-    // router.reload();
-    // router.replace("/components/handler");
+
   }
 
   function showDetails(information) {
@@ -118,7 +119,7 @@ export default function ParwezHandle() {
     const result1 = await ConnectToAPI("updateData", formData, "namaz", "POST");
     if (result1.message) {
       setLoading(false);
-      alert("update successfully ");
+      Text_speech("namaz timing update successfully");
       setNamazUpdateEffect(0);
       const result = await ConnectToAPI("findData", "", "namaz", "PUT");
       if (result) {
@@ -149,6 +150,7 @@ export default function ParwezHandle() {
     }
     const res = await ConnectToAPI("addData", data, "amam", "POST");
     if (res.message) {
+      Text_speech(" adding successfully");
       setLoading(false);
       setValid(true);
       setSelected(false);

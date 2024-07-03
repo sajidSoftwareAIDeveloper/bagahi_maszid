@@ -84,7 +84,7 @@ export default function AmamList(){
                                 <td></td>
                                 <td>total</td>
                                 <td>{data.reduce((sum,e)=>sum+Number(e.amount),0)}</td>
-                                <td>{data.reduce((sum,e)=>sum+Number(e.amount),0)===items.salary_month?'complete':'incomplete'}</td>
+                                <td>{(data.reduce((sum,e)=>sum+Number(e.amount),0)===Number(items.salary))?'complete':'incomplete'}</td>
                             </tr>
                             }
                              
@@ -99,33 +99,3 @@ export default function AmamList(){
         </div>
     );
 }
-
-/*
-
-{
-                               data.length!==0 && items.salary_month===showListIdBased?
-                             <div>
-                              <table>
-                                <TableHeading data={["name","amount","date"]}/>
-                                {
-                                    data.map((items1,index1)=>(
-                                        <tr>
-                                            <td>{index1+1}</td>
-                                            <td>{items1.name}</td>
-                                            <td>{items1.amount}</td>
-                                            <td>{items1.date}</td>
-                                        </tr>
-                                    ))
-                                }
-                                    <tr>
-                                        <td></td>
-                                        <td>total</td>
-                                        <td>{data.reduce((sum,e)=>sum+Number(e.amount),0)}</td>
-                                        <td>{data.reduce((sum,e)=>sum+Number(e.amount),0)===items.salary_month?'done':'not'}</td>
-                                    </tr>
-                              </table>
-                             </div>
-                              :items.salary_month===showListIdBased&& <NotAvailable/>
-                          }
-
-*/
