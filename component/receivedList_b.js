@@ -96,7 +96,7 @@ export default function ReceivedList_b(){
 
     return(
         <div className="text-xl text-blue-400">
-        {!search?
+        {!search?  
         <div>
            <h1 className="text-red-400 text-2xl"> total bagahi commit amount:::{data_b.reduce((sum,e)=>sum+Number(e.amount),0)}</h1> 
            <h1 className="text-green-500 text-2xl"> total received bagahi amount::: {data_b_in.reduce((sum,e)=>sum+Number(e.result),0)}</h1> 
@@ -114,12 +114,8 @@ export default function ReceivedList_b(){
                           <td>{items.name}</td>
                           <td>{totalReceived(items._id)}</td>
                           <td>{items.amount}</td>
-<<<<<<< HEAD
                           <td className="text-green-400">
                             {   
-=======
-                          <td className="text-green-400"> {   
->>>>>>> 79598a6d41742cb16a1a6fa1e02f89acdaa0c686
                               data_b_in.length!==0?
                               data_b_in.map(items11=>(
 
@@ -129,12 +125,8 @@ export default function ReceivedList_b(){
                              ))
                               :Number(items.amount)
                              
-<<<<<<< HEAD
                             }
                           </td>
-=======
-                            }</td>
->>>>>>> 79598a6d41742cb16a1a6fa1e02f89acdaa0c686
                           <td>{items.date}</td>
                           <td> <button className="p-1 mr-5 mb-2 bg-red-200 text-lg rounded-xl border-red-500 active:bg-blue-400 hover:bg-blue-900" onClick={()=>showInsideReceivedData(items._id)}>
                             { items._id===showListIdBased ?"Hide":"show"}</button></td>

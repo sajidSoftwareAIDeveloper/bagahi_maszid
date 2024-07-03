@@ -7,7 +7,6 @@ import NotAvailable from "./notAvailable";
 import { useSelector } from "react-redux";
 import NotFound from "../pages/404";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import LoadingData from "./LoadingData";
 import { Text_speech } from "./text-speech";
 
