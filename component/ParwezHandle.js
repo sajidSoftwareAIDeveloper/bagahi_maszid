@@ -274,7 +274,7 @@ export default function ParwezHandle() {
                               <td>{items1.date}</td>
                             </tr>
                           ))
-                        ) : <tr><td></td> <td>{<NotAvailable/>}</td></tr>
+                        ) : <tr><td></td> <td colSpan="4">{<NotAvailable/>}</td></tr>
                       )
                       } 
                     
@@ -293,7 +293,8 @@ export default function ParwezHandle() {
                      
                        { items._id ===showListIdBased &&
                         <tr>
-                         <td>
+                         <td></td>
+                         <td colSpan="4">
                          <form onSubmit={temporaryAddHandle}>
                           <Input type="number" name="amount" label="amount" />
                           <Input type="date" name="date" label=" date" />
