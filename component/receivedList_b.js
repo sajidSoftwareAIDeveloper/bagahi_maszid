@@ -141,7 +141,7 @@ export default function ReceivedList_b(){
                                      <td>{items.date}</td>
                                 </tr>
                             ))          
-                        : <tr> <td></td> <td>{items._id===showListIdBased &&<NotAvailable/>}</td></tr>
+                        : <tr> <td></td> <td colSpan="4">{items._id===showListIdBased &&<NotAvailable/>}</td></tr>
                         }
                      </tbody>
                         
